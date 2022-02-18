@@ -33,7 +33,7 @@ function App() {
     <div className="App container">
         {
             Object.keys(user).length === 0 ? (
-                <Login loginEndpoint={loginEndpoint} handler={handleLogin}/>
+                <Login handler={handleLogin}/>
             ) : (
                 <h1>Hello from React, {user.id}</h1>
             )

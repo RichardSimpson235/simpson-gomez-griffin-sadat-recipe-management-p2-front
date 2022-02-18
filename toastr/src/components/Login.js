@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 
-function Login({ loginEndpoint, handler }) {
+function Login({ handler }) {
 
     const [authenticationFailed, setAuthenticationFailed] = useState(false);
     const usernameField = useRef();
