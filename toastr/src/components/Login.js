@@ -30,7 +30,7 @@ function Login({ loginEndpoint, handler }) {
                         </div>
                         <div className="form-group">
                             <label className='form-label' htmlFor='passwordInput'>Password</label>
-                            <input ref={passwordField} type="text" className='form-control' id='passwordInput'/>
+                            <input ref={passwordField} type='password' className='form-control' id='passwordInput'/>
                         </div>
                         <div className='container'>
                             <button onClick={login} type='button' className='btn btn-primary'>Login</button>
