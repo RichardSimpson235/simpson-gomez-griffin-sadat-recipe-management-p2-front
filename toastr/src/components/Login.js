@@ -1,12 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
 function Login({ loginEndpoint, handler }) {
 
+    const [authenticationFailed, setAuthenticationFailed] = useState(false);
     const usernameField = useRef();
     const passwordField = useRef();
 
     const login = () => {
-        handler(usernameField.current.value, passwordField.current.value);
+        if (!handler(usernameField.current.value, passwordField.current.value)) {
+            setAuthenticationFailed(true);
+        } else {
+            setAuthenticationFailed(false);
+        }
     }
 
     return (
@@ -17,6 +22,7 @@ function Login({ loginEndpoint, handler }) {
                 </div>
                 <div id="login-form" className='col'>
                     <h1>Welcome to Toastr!</h1>
+                    {authenticationFailed && <p className="text-danger">The username or password didn't match our records.</p>}
                     <form >
                         <div className="form-group">
                             <label className='form-label' htmlFor='usernameInput'>Username</label>

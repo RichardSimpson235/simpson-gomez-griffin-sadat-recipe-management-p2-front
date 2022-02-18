@@ -22,6 +22,9 @@ function App() {
         fetch(loginEndpoint, requestInit).then(response => {
             if(response.ok) {
                 setUser(response.json());
+                return true;
+            } else {
+                return false;
             }
         });
   }
