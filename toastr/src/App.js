@@ -15,12 +15,12 @@ function App() {
         };
 
         const requestInit = {
-            method: 'GET',
+            method: 'POST',
             body: body
         };
 
         fetch(loginEndpoint, requestInit).then(response => {
-            if(response.status == 200) {
+            if(response.ok) {
                 setUser(response.json());
             }
         });
