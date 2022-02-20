@@ -7,7 +7,7 @@
 
  export default function UserAccountInfo({ user }){   
 
-    return(<>
+    return(<div className="container">
 
     <h3>Username: {user.username}</h3>
     <h3>Birth Date: {user.dateOfBirth}</h3>
@@ -15,6 +15,6 @@
     <h3>Email: {user.email}</h3>
     <h3>Phone: {user.phone}</h3>
 
-    </>);  
+    </div>);  
  
 }
