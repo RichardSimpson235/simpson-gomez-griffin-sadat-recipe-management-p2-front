@@ -1,8 +1,10 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Login({ handler }) {
 
     const [authenticationFailed, setAuthenticationFailed] = useState(false);
+    const navigate = useNavigate();
     const usernameField = useRef();
     const passwordField = useRef();
 
@@ -11,6 +13,7 @@ function Login({ handler }) {
             setAuthenticationFailed(true);
         } else {
             setAuthenticationFailed(false);
+            navigate('/recipes');
         }
     }
 
