@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes , Route, Navigate } from 'react-router-dom';
 import Login from './components/Login';
+import Content from './components/Content';
+import Account from './components/Account';
+import MyRecipes from './components/MyRecipes';
+import Search from './components/Search';
 import './components/login.css';
 
 function App() {
@@ -19,25 +24,36 @@ function App() {
             body: body
         };
 
-        fetch(loginEndpoint, requestInit).then(response => {
-            if(response.ok) {
-                setUser(response.json());
-                return true;
-            } else {
-                return false;
-            }
-        });
+        // fetch(loginEndpoint, requestInit).then(response => {
+        //     if(response.ok) {
+        //         setUser(response.json());
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // });
+
+        setUser({id: 0});
+        return true;
   }
   
   return (
     <div className="App container">
-        {
-            Object.keys(user).length === 0 ? (
-                <Login handler={handleLogin}/>
-            ) : (
-                <h1>Hello from React, {user.id}</h1>
-            )
-        }
+        <BrowserRouter>
+            <Routes>
+                {
+                    Object.keys(user).length === 0 ? 
+                    "" : 
+                    <Route element={<Content />}>
+                        <Route path='/recipes' element={<MyRecipes />}></Route>
+                        <Route path='/account' element={<Account />}></Route>
+                        <Route path='/search' element={<Search />}></Route>
+                    </Route>
+                }
+                <Route path='/login' element={<Login handler={handleLogin} />}></Route>
+                <Route path='/*' element={<Navigate to='/login'/>}></Route>
+            </Routes>
+        </BrowserRouter>
     </div>
   );
 }
