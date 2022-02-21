@@ -5,6 +5,7 @@ import Content from './components/Content';
 import AccountInformation from './components/AccountInformation';
 import RecipeHolder from './components/RecipeHolder';
 import Search from './components/Search';
+import RecipePage from './components/RecipePage';
 import './components/login.css';
 import AccountRegistration from './components/AccountRegistration';
 
@@ -65,6 +66,8 @@ function App() {
                     Object.keys(user).length === 0 ? 
                     "" : 
                     <Route element={<Content />}>
+                        <Route path='recipes/new' element={<RecipePage create={true} />} />
+                        <Route path='/recipes/:id' element={<RecipePage create={false} />} />
                         <Route path='/recipes' element={<RecipeHolder recipes={user.recipes} />}></Route>
                         <Route path='/account' element={<AccountInformation user={user} />}></Route>
                         <Route path='/search' element={<Search />}></Route>
@@ -72,7 +75,7 @@ function App() {
                 }
                 <Route path='/register' element={<AccountRegistration handler={handleRegistration} />}></Route>
                 <Route path='/login' element={<Login handler={handleLogin} />}></Route>
-                <Route path='/*' element={<Navigate to='/login'/>}></Route>
+                <Route path='/*' element={Object.keys(user).length === 0 ? <Navigate to='/login'/> : <Navigate to='recipes' />}></Route>
             </Routes>
         </BrowserRouter>
     </div>
