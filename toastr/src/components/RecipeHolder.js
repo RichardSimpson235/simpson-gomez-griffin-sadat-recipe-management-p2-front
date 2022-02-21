@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import RecipeCard from "./RecipeCard";
 import RecipeAdd from "./AddRecipeButton";
+import { useNavigate } from "react-router-dom";
 
 
 
 export default function RecipeHolder({ recipes }) {
 
-
     const [recipeItems, setRecipes] = useState([...recipes]);
+    const navigate = useNavigate();
 
     const recipeList = recipeItems.map(r =>                        
         <RecipeCard key={r.id} recipe={r} deleteCard={deleteRecipe} />
         
-        )
+    );
+
     function addRecipe(){
-        //some add recipe function cal
-        
+        navigate('/recipes/new');
     }
 
     function deleteRecipe(id) {
