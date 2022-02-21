@@ -7,25 +7,16 @@ import RecipeAdd from "./AddRecipeButton";
 export default function RecipeHolder({ recipes }) {
 
 
-    
-
-
     const [recipeItems, setRecipes] = useState([...recipes]);
 
     const recipeList = recipeItems.map(r =>                        
         <RecipeCard key={r.id} recipe={r} deleteCard={deleteRecipe} />
         
         )
-
-        
-
     function addRecipe(){
         //some add recipe function cal
         
     }
-
-
-
 
     function deleteRecipe(id) {
         const allRecipes = [...recipeItems];
@@ -34,12 +25,6 @@ export default function RecipeHolder({ recipes }) {
         setRecipes(newList);
         
     }
-
-
-    
-    
-    
-
 
     return(
         <div className="container">
