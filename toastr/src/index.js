@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RecipeCard from './components/RecipeCard';
+import App from './App';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <RecipeCard />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
