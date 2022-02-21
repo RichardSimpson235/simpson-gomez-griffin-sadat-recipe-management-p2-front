@@ -1,12 +1,13 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Nav from './Nav.jsx'
+import Header from './Header.jsx';
 
-function Content() {
+function Content({ user, handler }) {
     return (
         <div className='container'>
             <div className='row'>
-                <h1>This here be a header!</h1>
+                <Header user={user} handler={handler} />
             </div>
             <div className='row'>
                 <div className='col-3'>
