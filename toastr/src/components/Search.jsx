@@ -16,9 +16,9 @@ function Search() {
             });
 
             const response = await fetch(searchEndpoint);
-            const recipes = await response.json();
+            const newRecipes = await response.json();
 
-            setRecipes(recipes);
+            setRecipes(newRecipes);
         }
     }
 

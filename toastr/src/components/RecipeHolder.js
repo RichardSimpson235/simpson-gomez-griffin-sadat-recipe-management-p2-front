@@ -37,9 +37,13 @@ export default function RecipeHolder({ recipes, isDeletable }) {
             <div className="card-group">
                 {recipeList}
                 
-                    <div className="btn" onClick={addRecipe}>
-                        <RecipeAdd />
-                    </div>           
+                    {
+                        isDeletable ? (
+                        <div className="btn" onClick={addRecipe}>
+                            <RecipeAdd />
+                        </div>   
+                        ) : ""
+                    }        
             </div>
         </div>
 
