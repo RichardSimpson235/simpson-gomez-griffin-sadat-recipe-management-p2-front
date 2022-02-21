@@ -15,8 +15,6 @@ export default function RecipeCard({ recipe, deleteCard }) {
             description: recipe.description
         }
 
-        console.log(JSON.stringify(recipe));
-
         const url = `http://localhost:8080/recipes/${data.id}`;
         const httpResponse = await fetch(url, {
             method: "DELETE"
@@ -32,7 +30,6 @@ export default function RecipeCard({ recipe, deleteCard }) {
             nameVal: recipe.name,
             descpVal: recipe.description
         }
-        console.log(recipeObject);
     }
 
 
