@@ -9,8 +9,12 @@ function Content() {
                 <h1>This here be a header!</h1>
             </div>
             <div className='row'>
-                <Nav />
-                <Outlet />
+                <div className='col-3'>
+                    <Nav />
+                </div>
+                <div className='col-6'>
+                    <Outlet />
+                </div>
             </div>
         </div>
     )

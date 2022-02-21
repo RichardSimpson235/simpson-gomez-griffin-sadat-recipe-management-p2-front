@@ -5,7 +5,7 @@ function Nav() {
 
     return (
         <>
-            <div className='col-2'>
+            <div className='container border border-secondary'>
                 <nav className='nav flex-column nav-pills'>
                     <NavLink className='nav-link' to='/account'>Account</NavLink>
                     <NavLink className='nav-link' to='/recipes'>My Recipes</NavLink>
