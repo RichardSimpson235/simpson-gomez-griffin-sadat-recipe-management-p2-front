@@ -1,5 +1,6 @@
 import React from "react";
 import chicken from '../images/c.jpg';
+import './recipeCard.css';
 import { Link } from "react-router-dom";
 
 export default function RecipeCard({ recipe, deleteCard }) {    
@@ -33,8 +34,8 @@ export default function RecipeCard({ recipe, deleteCard }) {
                     <div className="col-md-8" style={{display: 'flex'}}>
                         <div className="card-body" >
                             <div className="row">
-                                <div className="d-flex justify-content-end" >
-                                    <button  onClick={deleteRecipe} type="button" className="btn-close " aria-label="Close"/>
+                                <div className="d-flex justify-content-end button-div" >
+                                    <button  onClick={deleteRecipe} type="button" className="btn-close z-index-master" aria-label="Close"/>
                                 </div>
                             </div>
                             <h5 style={{display: 'none'}} id="recipeId">{recipe.id}</h5>
