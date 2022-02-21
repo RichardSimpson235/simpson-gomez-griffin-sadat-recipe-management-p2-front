@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 
 
-export default function RecipeHolder({ recipes }) {
+export default function RecipeHolder({ recipes, isDeletable }) {
 
     const [recipeItems, setRecipes] = useState([...recipes]);
     const navigate = useNavigate();
 
     const recipeList = recipeItems.map(r =>                        
-        <RecipeCard key={r.id} recipe={r} deleteCard={deleteRecipe} />
+        <RecipeCard key={r.id} recipe={r} deleteCard={deleteRecipe} isDeletable={isDeletable}/>
         
     );
 

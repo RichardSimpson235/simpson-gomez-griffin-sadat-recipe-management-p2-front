@@ -72,7 +72,7 @@ function App() {
                     <Route element={<Content user={user} handler={handleLogout}/>}>
                         <Route path='recipes/new' element={<RecipePage create={true} />} />
                         <Route path='/recipes/:id' element={<RecipePage create={false} />} />
-                        <Route path='/recipes' element={<RecipeHolder recipes={user.recipes} />}></Route>
+                        <Route path='/recipes' element={<RecipeHolder recipes={user.recipes} isDeletable={true}/>}></Route>
                         <Route path='/account' element={<AccountInformation user={user} />}></Route>
                         <Route path='/search' element={<Search />}></Route>
                     </Route>
