@@ -3,18 +3,28 @@ import { useNavigate } from 'react-router-dom';
 
 function Login({ handler }) {
 
-    const [authenticationFailed, setAuthenticationFailed] = useState(false);
+    const [wasBanned, setBanned] = useState(false);
+    const [wasNotFound, setNotFound] = useState(false);
     const navigate = useNavigate();
     const usernameField = useRef();
     const passwordField = useRef();
 
-    const login = () => {
-        if (!handler(usernameField.current.value, passwordField.current.value)) {
-            setAuthenticationFailed(true);
-        } else {
-            setAuthenticationFailed(false);
+    const login = async () => {
+        setBanned(false);
+        setNotFound(false);
+        const code = await handler(usernameField.current.value, passwordField.current.value);
+
+        if(code === 200) {
             navigate('/recipes');
+        } else if (code === 403) {
+            setBanned(true);
+        } else {
+            setNotFound(true);
         }
+    }
+
+    const register = () => {
+        navigate('/register');
     }
 
     return (
@@ -25,7 +35,12 @@ function Login({ handler }) {
                 </div>
                 <div id="login-form" className='col'>
                     <h1>Welcome to Toastr!</h1>
-                    {authenticationFailed && <p className="text-danger">The username or password didn't match our records.</p>}
+                    {
+                        wasBanned && <p className='text-danger'>It appears you were banned, please contact us at toastr@gmail.com for more information.</p>
+                    }
+                    {
+                        wasNotFound && <p className='text-danger'>We were unable to find your account. Did you type your username and password correctly?</p>
+                    }
                     <form >
                         <div className="form-group">
                             <label className='form-label' htmlFor='usernameInput'>Username</label>
@@ -37,7 +52,7 @@ function Login({ handler }) {
                         </div>
                         <div className='container'>
                             <button onClick={login} type='button' className='btn btn-primary'>Login</button>
-                            <button type='button' className='btn btn-secondary'>Register</button>
+                            <button onClick={register} type='button' className='btn btn-secondary'>Register</button>
                         </div>
                     </form>
                 </div>
