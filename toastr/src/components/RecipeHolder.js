@@ -29,17 +29,20 @@ export default function RecipeHolder({ recipes }) {
 
     return(
         <div className="container">
-    <br/>
-    <h1 style={{textAlign: "center"}}>My Recipes</h1><br/>
+            <div className="row text-center">
+                <h1 className="display-4">My Recipes</h1><br/>
+            </div>
  
-        <div className="card-group">
-            {recipeList}
-            
-                <div className="btn" onClick={addRecipe}>
-                    <RecipeAdd />
-                </div>           
+        <div className="row">
+            <div className="card-group">
+                {recipeList}
+                
+                    <div className="btn" onClick={addRecipe}>
+                        <RecipeAdd />
+                    </div>           
+            </div>
         </div>
 
     </div>
     )
-} 
+}

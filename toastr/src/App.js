@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes , Route, Navigate, resolvePath } from 'react-router-dom';
+import { BrowserRouter, Routes , Route, Navigate } from 'react-router-dom';
 import Login from './components/Login';
 import Content from './components/Content';
 import AccountInformation from './components/AccountInformation';
@@ -56,7 +56,11 @@ function App() {
         }
 
         return response.status;
-  }
+    }
+
+    const handleLogout = () => {
+        setUser({});
+    }
   
   return (
     <div className="App container">
@@ -65,7 +69,7 @@ function App() {
                 {
                     Object.keys(user).length === 0 ? 
                     "" : 
-                    <Route element={<Content />}>
+                    <Route element={<Content user={user} handler={handleLogout}/>}>
                         <Route path='recipes/new' element={<RecipePage create={true} />} />
                         <Route path='/recipes/:id' element={<RecipePage create={false} />} />
                         <Route path='/recipes' element={<RecipeHolder recipes={user.recipes} />}></Route>
