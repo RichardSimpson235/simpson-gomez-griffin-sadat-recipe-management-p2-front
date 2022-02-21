@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes , Route, Navigate, resolvePath } from 'react-router-dom';
 import Login from './components/Login';
 import Content from './components/Content';
-import Account from './components/Account';
-import MyRecipes from './components/MyRecipes';
+import AccountInformation from './components/AccountInformation';
+import RecipeHolder from './components/RecipeHolder';
 import Search from './components/Search';
 import './components/login.css';
 import AccountRegistration from './components/AccountRegistration';
@@ -65,8 +65,8 @@ function App() {
                     Object.keys(user).length === 0 ? 
                     "" : 
                     <Route element={<Content />}>
-                        <Route path='/recipes' element={<MyRecipes />}></Route>
-                        <Route path='/account' element={<Account />}></Route>
+                        <Route path='/recipes' element={<RecipeHolder recipes={user.recipes} />}></Route>
+                        <Route path='/account' element={<AccountInformation user={user} />}></Route>
                         <Route path='/search' element={<Search />}></Route>
                     </Route>
                 }
