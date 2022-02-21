@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Nav() {
 
@@ -12,8 +12,6 @@ function Nav() {
                     <NavLink className='nav-link' to='/search'>Search</NavLink>
                 </nav>
             </div>
-
-            <Outlet />
         </>
         
     )
