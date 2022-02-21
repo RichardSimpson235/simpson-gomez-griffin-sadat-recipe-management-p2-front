@@ -6,7 +6,7 @@ export default function Instructions({ props }) {
    const [instructions, setInstruction] = useState([...props])
 
    const instructionsList = instructions.map(
-       inst => <div key={inst.id}>
+       inst => <div key={inst.step}>
            <h4>{inst.step}</h4>
            <p>{inst.instruction}</p>
        
