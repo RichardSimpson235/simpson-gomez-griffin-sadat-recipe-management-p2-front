@@ -1,26 +1,14 @@
 import React, { useState } from "react";
 
-export default function Instructions({ props }) {
-
-   
-   const [instructions, setInstruction] = useState([...props])
+export default function Instructions({ instructions }) {
 
    const instructionsList = instructions.map(
        inst => <div key={inst.step}>
            <h4>{inst.step}</h4>
-           <p>{inst.instruction}</p>
+           <p>{inst.text}</p>
        
        </div>
    );
-   
-   
-   
-   
-   
-   
-   
-       
-   
    
     return(
         

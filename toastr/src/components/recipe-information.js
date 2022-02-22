@@ -1,5 +1,5 @@
 import React from "react";
-import taco from "./taco.jpg"
+import taco from "./tacoHR.jpg"
 
 export default function RecipeInfo({ recipe }){
 
