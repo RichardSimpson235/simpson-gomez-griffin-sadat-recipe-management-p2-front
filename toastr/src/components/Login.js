@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import icon from '../icon_toastr.jpg';
 
 function Login({ handler }) {
 
@@ -31,7 +32,7 @@ function Login({ handler }) {
         <div className="container">
             <div className="row align-items-center">
                 <div className="col">
-                    <img src="https://media1.thehungryjpeg.com/thumbs2/800_3971511_rj3k9j6t4brmnxpfr2photci1ltvrs6wkge1zovd_bread-toaster-icon-simple-style.jpg"/>
+                    <img src={icon}/>
                 </div>
                 <div id="login-form" className='col'>
                     <h1>Welcome to Toastr!</h1>

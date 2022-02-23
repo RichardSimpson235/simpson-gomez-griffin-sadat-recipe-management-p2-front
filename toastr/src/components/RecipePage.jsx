@@ -28,7 +28,7 @@ function RecipePage({ create }) {
                 <RecipeInfo recipe={recipe}/>
             </div>
             <div className="row">
-                <Instructions instructions={recipe.instructions} />
+                {/* <Instructions instructions={recipe.instructions} /> */}
             </div>
         </>)
     )
